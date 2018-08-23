@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <Appenders>
+
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>[%t] %-5level %-1logger{4}: %msg%n</pattern>
+            </PatternLayout>
+        </Console>
+        <Routing name="RoutingAppender">
+            <Routes pattern="${ctx:logFileName}">
+
+                <!-- This route is chosen if ThreadContext has a value for logFileName.
+                    The value dynamically determines the name of the log file. -->
+
+                <Route>
+                    <RollingFile name="Rolling-${ctx:logFileName}"
+                                 fileName="logs/${ctx:logFileName}.log"
+                                 filePattern="./logs/${date:yyyy-MM}/${ctx:logFileName}_%d{yyyy-MM-dd}-%i.log.gz">
+                        <PatternLayout>
+                            <pattern>[%t] %-5level %-1logger{4}: %msg%n</pattern>
+                        </PatternLayout>
+                        <Policies>
+                            <TimeBasedTriggeringPolicy interval="6"
+                                                       modulate="true" />
+                            <SizeBasedTriggeringPolicy size="15 MB" />
+                        </Policies>
+                    </RollingFile>
+                </Route>
+
+                <!-- This route is chosen if ThreadContext has no value for key logFileName. -->
+                <Route key="${ctx:logFileName}" ref="STDOUT" />
+
+            </Routes>
+        </Routing>
+    </Appenders>
+    <loggers>
+        <root level="debug">
+            <appender-ref ref="RoutingAppender" level="all" />
+        </root>
+    </loggers>
+</configuration>

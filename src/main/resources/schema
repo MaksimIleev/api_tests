@@ -1,0 +1,108 @@
+{
+  "collection": [
+    {
+      "artwork_url": "https://i1.sndcdn.com/artworks-000033583042-nk61e0-large.jpg",
+      "commentable": true,
+      "comment_count": 671,
+      "created_at": "2012-11-05T10:53:55Z",
+      "description": "",
+      "downloadable": true,
+      "download_count": 19509,
+      "download_url": "https://api.soundcloud.com/tracks/66196563/download",
+      "duration": 3610982,
+      "full_duration": 3610982,
+      "embeddable_by": "all",
+      "genre": "DJ Mix",
+      "has_downloads_left": true,
+      "id": 66196563,
+      "kind": "track",
+      "label_name": "",
+      "last_modified": "2018-08-08T23:28:38Z",
+      "license": "cc-by",
+      "likes_count": 7095,
+      "permalink": "laidback-luke-dj-set-live-at",
+      "permalink_url": "https://soundcloud.com/laidbackluke/laidback-luke-dj-set-live-at",
+      "playback_count": 305698,
+      "public": true,
+      "publisher_metadata": null,
+      "purchase_title": null,
+      "purchase_url": null,
+      "release_date": null,
+      "reposts_count": 1061,
+      "secret_token": null,
+      "sharing": "public",
+      "state": "finished",
+      "streamable": true,
+      "tag_list": "",
+      "title": "Laidback Luke DJ set Live At Escape From Wonderland Oct 2012",
+      "uri": "https://api.soundcloud.com/tracks/66196563",
+      "urn": "soundcloud:tracks:66196563",
+      "user_id": 236295,
+      "visuals": null,
+      "waveform_url": "https://wis.sndcdn.com/gF2U20J9lZfU_m.json",
+      "display_date": "2012-11-05T10:53:55Z",
+      "monetization_model": "BLACKBOX",
+      "policy": "MONETIZE",
+      "user": {
+        "avatar_url": "https://i1.sndcdn.com/avatars-000332190570-lfp2jp-large.jpg",
+        "city": "",
+        "comments_count": 68,
+        "country_code": "NL",
+        "created_at": "2009-08-31T23:58:14Z",
+        "creator_subscriptions": [
+          {
+            "product": {
+              "id": "creator-pro-unlimited",
+              "name": "Pro Unlimited"
+            },
+            "recurring": false,
+            "hug": false
+          }
+        ],
+        "creator_subscription": {
+          "product": {
+            "id": "creator-pro-unlimited",
+            "name": "Yearly Pro Unlimited plan"
+          },
+          "recurring": true,
+          "hug": false
+        },
+        "description": "",
+        "followers_count": 425945,
+        "followings_count": 2,
+        "first_name": "Laidback",
+        "full_name": "Laidback Luke",
+        "groups_count": 0,
+        "id": 236295,
+        "kind": "user",
+        "last_modified": "2018-08-03T12:16:09Z",
+        "last_name": "Luke",
+        "likes_count": 1,
+        "playlist_likes_count": 1,
+        "permalink": "laidbackluke",
+        "permalink_url": "https://soundcloud.com/laidbackluke",
+        "playlist_count": 27,
+        "reposts_count": null,
+        "track_count": 358,
+        "uri": "https://api.soundcloud.com/users/236295",
+        "urn": "soundcloud:users:236295",
+        "username": "LaidbackLuke",
+        "verified": false,
+        "visuals": {
+          "urn": "soundcloud:users:236295",
+          "enabled": true,
+          "visuals": [
+            {
+              "urn": "soundcloud:visuals:51977706",
+              "entry_time": 0,
+              "visual_url": "https://i1.sndcdn.com/visuals-000000236295-cU5Dco-original.jpg"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "total_results": 431,
+  "next_href": "https://api-v2.soundcloud.com/search?user_id=542937-574129-43903-52350&query_urn=soundcloud%3Asearch%3A4705136a40f24a4ead80bc5dd708e213&offset=1&q=escape%20from%20wonderland&limit=1",
+  "query_urn": "soundcloud:search:4705136a40f24a4ead80bc5dd708e213"
+}
