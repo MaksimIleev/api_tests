@@ -22,7 +22,6 @@ public class SoundCloudSearchTest extends TestBase {
         };
     }
 
-
     @Test(dataProvider = "testData")
     public void searchTest(String searchQuery, String limit, String offset, String appLocale) {
         /*
