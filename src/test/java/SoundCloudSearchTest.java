@@ -18,9 +18,12 @@ public class SoundCloudSearchTest extends TestBase {
     @DataProvider
     public Object[][] testData() {
         return new Object[][] {
-                {"Escape From Wonderland", "1", "0", "en"}
+                {"Escape From Wonderland", "1", "0", "en"},
+                {"Deep Purple", "5", "0", "en"},
+                {"каста", "5", "0", "en"}
         };
     }
+
 
     @Test(dataProvider = "testData")
     public void searchTest(String searchQuery, String limit, String offset, String appLocale) {
@@ -36,7 +39,7 @@ public class SoundCloudSearchTest extends TestBase {
         /*
         *  Build API request
         * */
-        CustomApiRequest apiRequest = CustomApiRequest.Builder().method(GET)
+        CustomApiRequest api = CustomApiRequest.Builder().method(GET)
                 .setDomain("https://api-v2.soundcloud.com")
                 .setHeaders(null)
                 .setURI("/search?")
@@ -48,13 +51,13 @@ public class SoundCloudSearchTest extends TestBase {
                 .setURI("&app_locale=" + appLocale)
                 .build();
 
-        apiRequest.sendRequest();
-        apiRequest.Validate().statusCodeEquals(200);
+        api.sendRequest();
+        api.Validate().statusCodeEquals(200);
 
         /*
         *  Parse response into the object
         * */
-        _Collections collections = apiRequest.parse(_Collections.class);
+        _Collections collections = api.parse(_Collections.class);
 
         /*
         *  Assert logic
@@ -63,7 +66,7 @@ public class SoundCloudSearchTest extends TestBase {
 
         collections.getCollection().stream().forEach(c -> {
             LogUtils.bold("Current title: " + c.getTitle());
-            soft.assertTrue(c.getTitle().contains(searchQuery), " Title contains search query?");
+            soft.assertTrue(c.getTitle().toLowerCase().contains(searchQuery.toLowerCase()), " Title contains search query?");
         });
 
         soft.assertAll();
