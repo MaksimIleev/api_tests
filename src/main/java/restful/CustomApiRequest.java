@@ -84,7 +84,7 @@ public class CustomApiRequest extends ApiRequest {
         return validator;
     }
 
-    public <T> Object parseResponse(Class<T> t) {
+    public <T> T parseResponse(Class<T> t) {
         try {
             return (T) ResponseUtils.parse(Class.forName(t.getName()), getResponse().getResponseBody());
         } catch (ClassNotFoundException e) {

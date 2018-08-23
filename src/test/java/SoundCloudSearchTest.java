@@ -57,7 +57,7 @@ public class SoundCloudSearchTest extends TestBase {
         /*
         *  Parse response into the object
         * */
-        _Collections collections = api.parse(_Collections.class);
+        _Collections collections = api.parseResponse(_Collections.class);
 
         /*
         *  Assert logic
