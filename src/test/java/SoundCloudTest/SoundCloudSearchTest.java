@@ -1,3 +1,6 @@
+package SoundCloudTest;
+
+import manage.io.ExcelDataProvider;
 import manage.test.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -17,16 +20,13 @@ public class SoundCloudSearchTest extends TestBase {
 
     @DataProvider
     public Object[][] testData() {
-        return new Object[][] {
-                {"Escape From Wonderland", "1", "0", "en"},
-                {"Deep Purple", "5", "0", "en"},
-                {"каста", "5", "0", "en"}
-        };
+        ExcelDataProvider excel = new ExcelDataProvider("src/test/java/SoundCloudTest/TestCases.xlsx");
+        return excel.readValues(SoundCloudTestData.class);
     }
 
 
     @Test(dataProvider = "testData")
-    public void searchTest(String searchQuery, String limit, String offset, String appLocale) {
+    public void searchTest(SoundCloudTestData testData) {
         /*
         *  Set Test Description
         * */
@@ -43,12 +43,12 @@ public class SoundCloudSearchTest extends TestBase {
                 .setDomain("https://api-v2.soundcloud.com")
                 .setHeaders(null)
                 .setURI("/search?")
-                .setURI("q=" + searchQuery)
+                .setURI("q=" + testData.getSearchQuery())
                 .setURI("&user_id=" + userId)
                 .setURI("&client_id=" + clientId)
-                .setURI("&limit=" + limit)
-                .setURI("&offset=" + offset)
-                .setURI("&app_locale=" + appLocale)
+                .setURI("&limit=" + testData.getLimit())
+                .setURI("&offset=" + testData.getOffset())
+                .setURI("&app_locale=" + testData.getAppLocale())
                 .build();
 
         api.sendRequest();
@@ -62,11 +62,11 @@ public class SoundCloudSearchTest extends TestBase {
         /*
         *  Assert logic
         * */
-        Assert.assertTrue(collections.getCollection().size() == Integer.parseInt(limit), " size equals to limit?");
+        Assert.assertTrue(collections.getCollection().size() == Integer.parseInt(testData.getLimit()), " size equals to limit?");
 
         collections.getCollection().stream().forEach(c -> {
             LogUtils.bold("Current title: " + c.getTitle());
-            soft.assertTrue(c.getTitle().toLowerCase().contains(searchQuery.toLowerCase()), " Title contains search query?");
+            soft.assertTrue(c.getTitle().toLowerCase().contains(testData.getSearchQuery().toLowerCase()), " Title contains search query?");
         });
 
         soft.assertAll();

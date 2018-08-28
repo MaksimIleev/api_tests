@@ -1,0 +1,4 @@
+TestCaseId,TestCaseName,TestCseDescription,searchQuery,limit,offset,appLocale
+1,soundCloudSearch,Very Sound Cloud search query result,Escape From Wonderland,1,0,en
+1,soundCloudSearch,Very Sound Cloud search query result,Deep Purple,5,0,en
+1,soundCloudSearch,Very Sound Cloud search query result,каста,5,0,en
